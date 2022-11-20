@@ -39,6 +39,10 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\ctrDialogue.cs" />
+     <None Include="Assets\Type\Cyrillic\readme.txt" />
+     <None Include="Assets\Type\license.txt" />
+     <None Include="Assets\Type\Atlantis\README.txt" />
+     <None Include="Assets\Type\TimeTwist\READMEtimetwist.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
