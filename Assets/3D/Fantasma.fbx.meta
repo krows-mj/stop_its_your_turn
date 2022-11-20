@@ -1,9 +1,17 @@
 fileFormatVersion: 2
-guid: 5ee2dbe86cfbcfb4dbf6482fbd29d441
+guid: 2acc7097c1d89254abff904d6cad3258
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects: {}
+  internalIDToNameTable:
+  - first:
+      74: 54154013257295684
+    second: Esqueleto.001|Esqueleto.001Action
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Espritirus
+    second: {fileID: 2100000, guid: 041900bfdbcb039449b915a08167eb4e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -41,8 +49,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
