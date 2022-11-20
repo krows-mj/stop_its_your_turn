@@ -38,6 +38,7 @@ public class ctrDialogue : MonoBehaviour
         }
     }
 
+    [ContextMenu("StartDialogue")]
     public void StartDialogue(){
         onPanel();
         dialogueinit= true;
