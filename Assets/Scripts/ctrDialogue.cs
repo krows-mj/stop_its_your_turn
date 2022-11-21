@@ -5,35 +5,44 @@ using UnityEngine.UI;
 
 public class ctrDialogue : MonoBehaviour
 {
+    [Header("Valores")]
+    [SerializeField] private float tencion;
+    [SerializeField] private float ganando;
+
+    [Header("Control Dialogos")]
     [SerializeField] private GameObject panelDialogue;
     [SerializeField] private Text textAutor;
     [SerializeField] private Text textDialogue;
     [SerializeField] private float timeText;
 
+    
     [System.Serializable]
     public struct CDialogue{
         public string autor;
         [TextArea(2,2)]public string dialogue;
     }
+    [Header("Los dialogos")]
     [SerializeField] private CDialogue[] Dialogues;
 
-    [SerializeField] private bool dialogueinit;
-    [SerializeField] private int lineDialogue;
+    private CDialogue[] dialogueAux; //lo que se va a ejecutar
+    private bool dialogueinit;
+    private int lineDialogue;
     // Start is called before the first frame update
     void Start()
     {
-        //StartDialogue();   
+        //StartDialogue();
+        dialogueAux= Dialogues;   
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown("space") && dialogueinit){
-            if(textDialogue.text == Dialogues[lineDialogue].dialogue){
+            if(textDialogue.text == dialogueAux[lineDialogue].dialogue){
                 NextDialogue();
             }else{
                 StopAllCoroutines();
-                textDialogue.text= Dialogues[lineDialogue].dialogue;
+                textDialogue.text= dialogueAux[lineDialogue].dialogue;
             }
         }
     }
@@ -47,15 +56,15 @@ public class ctrDialogue : MonoBehaviour
     }
     private IEnumerator ShowLine(){
         textDialogue.text= string.Empty;
-        textAutor.text= Dialogues[lineDialogue].autor;
-        foreach(char c in Dialogues[lineDialogue].dialogue){
+        textAutor.text= dialogueAux[lineDialogue].autor;
+        foreach(char c in dialogueAux[lineDialogue].dialogue){
             textDialogue.text += c;
             yield return new WaitForSeconds(timeText);
         }
     }
     private void NextDialogue(){
         lineDialogue++;
-        if(lineDialogue < Dialogues.Length){
+        if(lineDialogue < dialogueAux.Length){
             StartCoroutine(ShowLine());
         }else{
             offPanel();
@@ -70,5 +79,9 @@ public class ctrDialogue : MonoBehaviour
         textAutor.text= string.Empty;
         textDialogue.text= string.Empty;
         panelDialogue.SetActive(false);
+    }
+
+    private void ControlDialogo(){
+        //ayuda xD 
     }
 }
