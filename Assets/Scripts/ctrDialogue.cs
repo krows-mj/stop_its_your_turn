@@ -114,6 +114,7 @@ public class ctrDialogue : MonoBehaviour
         StartCoroutine(ShowLine());
     }
     private IEnumerator ShowLine(){
+        dialogueinit= true;
         //burbuja.sprite= (dialogueAux[lineDialogue].burbujaText != null)? dialogueAux[lineDialogue].burbujaText: BurbujaDefault;
         if(dialogueAux[lineDialogue].autor =="C:"){
             textAutor.text= "Contrincante";
@@ -148,7 +149,8 @@ public class ctrDialogue : MonoBehaviour
         //panelDialogue.SetActive(false);
         if(fin == false){    
             ctrbutton.MostrarOpciones();
-        }else{
+        }
+        if(ElInterludio== false && fin==true){
             PanelFin.SetActive(true);
         }
         if(ElInterludio){
@@ -157,6 +159,7 @@ public class ctrDialogue : MonoBehaviour
     }
 
     public void ControlDialogo(string cod){
+        lineDialogue= 0;
         cod=(cod=="D1")? ctrbutton.getOption1(): ctrbutton.getOption2();
         switch (cod){
             case "A":
@@ -270,6 +273,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("AB");
         option1.text= "Tomá.";
         option2.text= "Disculpame.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaAA(){
@@ -281,6 +285,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("AAB");
         option1.text= "Quiero... ver lo que tenés.";
         option2.text= "No se quiere.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaAAA(){
@@ -292,6 +297,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("AAAB");
         option1.text= "...Perdí. Juguemos otra.";
         option2.text= "...Nunca dije que quería el truco. Dije que quería ver lo que tenés.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaAAAA(){
@@ -301,6 +307,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= AAAA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaAAAB(){
         //Envio de datos
@@ -309,6 +316,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= AAAB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaAAB(){
         //Envio de datos
@@ -319,6 +327,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("AABB");
         option1.text= "Ok.";
         option2.text= "No mostraste el envido.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaAABB(){
@@ -330,6 +339,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("AABBB");
         option1.text= "No, no mostraste el envido, tenías que hacerlo.";
         option2.text= "Sí, ya pasó.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaAABBA(){
@@ -339,6 +349,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= AABBA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaAABBB(){
         //Envio de datos
@@ -347,6 +358,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= AABBB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaAB(){
         //Envio de datos
@@ -357,6 +369,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("ABB");
         option1.text= "Sí... Sólo un juego...";
         option2.text= "Más vale que es un juego para vos.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaABA(){
@@ -368,6 +381,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("ABAB");
         option1.text= "Juegos... ¿por qué dejamos de hacerlos?";
         option2.text= "Juegos... Bah. Todo es una basura.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaABAA(){
@@ -377,6 +391,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= ABAA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaABAB(){
         //Envio de datos
@@ -385,6 +400,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= ABAB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaABB(){
         //Envio de datos
@@ -395,6 +411,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("ABBB");
         option1.text= "Tenés razón. Me tengo que calmar...";
         option2.text= "¡No! ¡Ya estoy podrido de tus ‘calmémonos’!";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaABBA(){
@@ -404,6 +421,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= ABBA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaABBB(){
         //Envio de datos
@@ -412,6 +430,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= ABBB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaB(){
         //Envio de datos
@@ -422,6 +441,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BB");
         option1.text= "¿Qué opinás de esto?";
         option2.text= "Y sí...";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBA(){
@@ -433,6 +453,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BAB");
         option1.text= "Truco... si tenés las agallas.";
         option2.text= "Es sólo un juego.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBAA(){
@@ -444,6 +465,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BAAB");
         option1.text= "Facilita me la dejaste, ¿eh?";
         option2.text= "Gallina. Cómo siempre.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBAAA(){
@@ -453,6 +475,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BAAA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBAAB(){
         //Envio de datos
@@ -461,6 +484,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BAAB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBAB(){
         //Envio de datos
@@ -471,6 +495,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BABB");
         option1.text= "Obvio, un juego entre compas.";
         option2.text= "Sí, es un juego. Un juego de mierda.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBABA(){
@@ -480,6 +505,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BABA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBABB(){
         //Envio de datos
@@ -488,6 +514,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BABB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBB(){
         //Envio de datos
@@ -498,6 +525,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BBB");
         option1.text= "Opino que te vayas a cagar.";
         option2.text= "Truco.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBBA(){
@@ -506,7 +534,8 @@ public class ctrDialogue : MonoBehaviour
         ganando -= 5; 
         dialogueAux= BBA;
         // PRIMER INTERLUDIO
-        ElInterludio= true;     
+        ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBBAA(){
         //Envio de datos
@@ -515,6 +544,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BBAA;
         // PRIMER INTERLUDIO
         ElInterludio= true; 
+        StartCoroutine(ShowLine());
     }
     private void PartidaBBAB(){
         //Envio de datos
@@ -523,6 +553,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BBAB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBBB(){
         //Envio de datos
@@ -533,6 +564,7 @@ public class ctrDialogue : MonoBehaviour
         ctrbutton.setOption2("BBBB");
         option1.text= "No pensé que caerías, ja.";
         option2.text= "Pero, che. Si no te la jugás, no ganás.";
+        StartCoroutine(ShowLine());
         //Secuencia
     }
     private void PartidaBBBA(){
@@ -542,6 +574,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BBBA;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void PartidaBBBB(){
         //Envio de datos
@@ -550,6 +583,7 @@ public class ctrDialogue : MonoBehaviour
         dialogueAux= BBBB;
         // PRIMER INTERLUDIO
         ElInterludio= true;
+        StartCoroutine(ShowLine());
     }
     private void Interludio(){
         fin= true;
@@ -563,6 +597,7 @@ public class ctrDialogue : MonoBehaviour
                 dialogueAux= IC;
             }
         }
+        StartCoroutine(ShowLine());
     }
 
     [ContextMenu("Reiniciar")]
